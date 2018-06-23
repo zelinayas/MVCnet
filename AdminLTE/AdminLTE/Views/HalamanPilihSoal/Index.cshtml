@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">PILIHAN SOAL</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- /.box-header -->
+                <!-- form start -->
+                <div class="box-header with-border">
+                    <div class="col-md-4">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>Kelompok Soal</label>
+                                <select class="form-control">
+                                    <option>Matematika</option>
+                                    <option>Psikotes</option>
+                                    <option>Fisika</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>Kelompok Sub</label>
+                                <select class="form-control">
+                                    <option>Sub 1</option>
+                                    <option>Sub 2</option>
+                                    <option>Sub 3</option>
+                                    <option>Sub 4</option>
+                                    <option>Tambah sub</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="box-body">
+        <table id="example2" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+
+                    <th></th>
+                    <th>No</th>
+                    <th>SOAL</th>
+                    <th>TIPE SOAL</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1</td>
+                    <td>Apa nama ibukota Negara Indonesia ?</td>
+                    <td>Pilihan ganda</td>
+
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2</td>
+                    <td>Apa saja nama suku yang ada di Pulau Kalimantan ?</td>
+                    <td>Uraian</td>
+
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>3</td>
+                    <td>Apa nama mata uang Negara Indonesia ?</td>
+                    <td>Uraian</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+
+    <div class="box-body">
+        <table id="example2" class="table table-bordered table-hover">
+            <div class="box-header">
+                <h3 class="box-title">TAMPILAN SOAL YANG DIPILIH</h3>
+            </div>
+            <thead>
+                <tr>
+
+                    <th>NO</th>
+                    <th>SOAL</th>
+                    <th>JENIS SOAL</th>
+                    <th>KELOMPOK SUB</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>1</td>
+                    <td>Apa nama ibukota Negara Indonesia ?</td>
+                    <td>Pilihan ganda</td>
+                    <th>SUB 1</th>
+
+                </tr>
+                <tr>
+
+                    <td>2</td>
+                    <td>Apa saja nama suku yang ada di Pulau Kalimantan ?</td>
+                    <td>Uraian</td>
+                    <th>SUB 2</th>
+
+                </tr>
+                <tr>
+
+                    <td>3</td>
+                    <td>Apa nama mata uang Negara Indonesia ?</td>
+                    <td>Uraian</td>
+                    <th>SUB 3</th>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+    </div>

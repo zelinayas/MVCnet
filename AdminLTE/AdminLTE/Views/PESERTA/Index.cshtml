@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AdminLTE.Models.PESERTA>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Pilih
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PASSWORD)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Is_Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROFIL_PESERTA.NAMA_PESERTA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.CheckBox("ID", true)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PASSWORD)
+        </td>
+
+        <td>
+            @item.Is_Active
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROFIL_PESERTA.NAMA_PESERTA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID_PESERTA }) |
+            @Html.ActionLink("Detail", "Detail", new { id = item.ID_PESERTA }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID_PESERTA })
+        </td>
+    </tr>
+}
+
+</table>

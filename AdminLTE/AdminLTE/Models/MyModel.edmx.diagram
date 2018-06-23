@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5aefd3fcd11841c5a7e0fa11d71a18bb" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="Test_OnlineModel.KELOMPOK_SOAL" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.PESERTA" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.PESERTA_JAWABAN_DETAIL" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.PESERTA_TES" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.PILIHAN_JAWABAN" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.PROFIL_PESERTA" Width="1.5" PointX="1.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.SOAL" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.SUBTES" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.TES" Width="1.5" PointX="0.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.TIPE_SOAL" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Test_OnlineModel.WILAYAH" Width="1.5" PointX="1.5" PointY="20.375" IsExpanded="true" />
+        <AssociationConnector Association="Test_OnlineModel.FK_SOAL_KELOMPOK_SOAL" ManuallyRouted="false" />
+        <AssociationConnector Association="Test_OnlineModel.FK_PESERTA__LIMA_PESERTA" ManuallyRouted="false" />
+        <AssociationConnector Association="Test_OnlineModel.FK_PESERTA_PROFIL_PESERTA" ManuallyRouted="false" />
+        <AssociationConnector Association="Test_OnlineModel.FK_PESERTA__EMPAT_SOAL" ManuallyRouted="false" />
+        <AssociationConnector Association="Test_OnlineModel.FK_PESERTA__DUA_TES" ManuallyRouted="false" />
+        <AssociationConnector Association="Test_OnlineModel.FK_PILIHAN_JAWABAN_SOAL" ManuallyRouted="false" />
+        <AssociationConnector Association="Test_OnlineModel.FK_PROFIL_PESERTA_WILAYAH" ManuallyRouted="false" />
+        <AssociationConnector Association="Test_OnlineModel.FK_SOAL_TIPE_SOAL" ManuallyRouted="false" />
+        <AssociationConnector Association="Test_OnlineModel.FK_SUBTES_TES" ManuallyRouted="false" />
+        <AssociationConnector Association="Test_OnlineModel.FK_SOAL_SUBTES" />
+        <AssociationConnector Association="Test_OnlineModel.FK_PESERTA__SATU_PESERTA_1" ManuallyRouted="true" >
+          <ConnectorPoint PointX="3.7420080349856844" PointY="11.625" />
+          <ConnectorPoint PointX="4.875" PointY="11.225769230769231" />
+          <ConnectorPoint PointX="4.4442631809663693" PointY="11.225769230769231" />
+          <ConnectorPoint PointX="4.4442631809663693" PointY="5.6549206888020827" />
+          <ConnectorPoint PointX="5.25" PointY="5.6549206888020827" />
+        </AssociationConnector>
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

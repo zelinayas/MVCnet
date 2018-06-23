@@ -1,0 +1,59 @@
+﻿@model AdminLTE.Models.TES
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TES</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NAMA_TES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAMA_TES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TGL_TES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TGL_TES)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_TES }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

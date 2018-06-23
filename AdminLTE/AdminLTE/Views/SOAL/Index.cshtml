@@ -1,0 +1,60 @@
+﻿@model IEnumerable<AdminLTE.Models.SOAL>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    
+    <tr>
+        <th>
+            Pilih
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.ISI_SOAL)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.KELOMPOK_SOAL.NAMA_KELOMPOKSOAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPE_SOAL.NAMA_TIPE)
+        </th>
+        
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.CheckBox("ID", true)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISI_SOAL)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.KELOMPOK_SOAL.NAMA_KELOMPOKSOAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPE_SOAL.NAMA_TIPE)
+        </td>
+        
+        <td>
+            
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_SOAL }) |
+            @Html.ActionLink("Detail", "Detail", new { id=item.ID_SOAL }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_SOAL })
+        </td>
+    </tr>
+}
+
+</table>

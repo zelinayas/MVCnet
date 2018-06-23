@@ -1,0 +1,875 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Test_OnlineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KELOMPOK_SOAL">
+          <Key>
+            <PropertyRef Name="ID_KELOMPOKSOAL" />
+          </Key>
+          <Property Name="ID_KELOMPOKSOAL" Type="int" Nullable="false" />
+          <Property Name="NAMA_KELOMPOKSOAL" Type="varchar" MaxLength="10" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PESERTA">
+          <Key>
+            <PropertyRef Name="ID_PESERTA" />
+          </Key>
+          <Property Name="ID_PESERTA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PROFIL" Type="int" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="30" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="20" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+          <Property Name="Is Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="PESERTA_JAWABAN_DETAIL">
+          <Key>
+            <PropertyRef Name="ID_JWBNPESERTA" />
+          </Key>
+          <Property Name="ID_JWBNPESERTA" Type="int" Nullable="false" />
+          <Property Name="ID_PESERTA_TEST" Type="int" />
+          <Property Name="ID_SOAL" Type="int" />
+          <Property Name="JWBN_PESERTA" Type="varchar" MaxLength="100" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PESERTA_TES">
+          <Key>
+            <PropertyRef Name="ID_PESERTA_TEST" />
+          </Key>
+          <Property Name="ID_PESERTA_TEST" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PESERTA" Type="int" />
+          <Property Name="ID_TES" Type="int" />
+          <Property Name="TGL_TES" Type="datetime" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PILIHAN_JAWABAN">
+          <Key>
+            <PropertyRef Name="ID_PILIHANJAWABAN" />
+          </Key>
+          <Property Name="ID_PILIHANJAWABAN" Type="int" Nullable="false" />
+          <Property Name="ID_SOAL" Type="int" />
+          <Property Name="PILIHAN" Type="char" MaxLength="1" />
+          <Property Name="PILIHAN_JAWABAN" Type="varchar" MaxLength="100" />
+          <Property Name="KUNCI_JAWABAN" Type="bit" Nullable="false" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PROFIL_PESERTA">
+          <Key>
+            <PropertyRef Name="ID_PROFIL" />
+          </Key>
+          <Property Name="ID_PROFIL" Type="int" Nullable="false" />
+          <Property Name="ID_WILAYAH" Type="int" />
+          <Property Name="NAMA_PESERTA" Type="varchar" MaxLength="50" />
+          <Property Name="ALAMAT_PESERTA" Type="varchar" MaxLength="100" />
+          <Property Name="TEMPAT_LAHIR" Type="varchar" MaxLength="20" />
+          <Property Name="TANGGAL_LAHIR" Type="datetime" />
+          <Property Name="NO_HP" Type="varchar" MaxLength="15" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SOAL">
+          <Key>
+            <PropertyRef Name="ID_SOAL" />
+          </Key>
+          <Property Name="ID_SOAL" Type="int" Nullable="false" />
+          <Property Name="ID_KELOMPOKSOAL" Type="int" />
+          <Property Name="ID_TIPESOAL" Type="int" />
+          <Property Name="ID_SUBTES" Type="int" />
+          <Property Name="ISI_SOAL" Type="varchar" MaxLength="500" />
+          <Property Name="NILAI_SOAL" Type="int" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SUBTES">
+          <Key>
+            <PropertyRef Name="ID_SUBTES" />
+          </Key>
+          <Property Name="ID_SUBTES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_TES" Type="int" />
+          <Property Name="DURASI_SUB" Type="datetime" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+          <Property Name="Is Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TES">
+          <Key>
+            <PropertyRef Name="ID_TES" />
+          </Key>
+          <Property Name="ID_TES" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TIPE_SOAL">
+          <Key>
+            <PropertyRef Name="ID_TIPESOAL" />
+          </Key>
+          <Property Name="ID_TIPESOAL" Type="int" Nullable="false" />
+          <Property Name="NAMA_TIPE" Type="varchar" MaxLength="15" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="WILAYAH">
+          <Key>
+            <PropertyRef Name="ID_WILAYAH" />
+          </Key>
+          <Property Name="ID_WILAYAH" Type="int" Nullable="false" />
+          <Property Name="NAMA_WILAYAH" Type="varchar" MaxLength="20" />
+          <Property Name="LEVEL_WILAYAH" Type="int" />
+          <Property Name="PARENT" Type="int" />
+          <Property Name="Created by" Type="varchar" MaxLength="50" />
+          <Property Name="Created date" Type="datetime" />
+          <Property Name="Modified by" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_PESERTA__DUA_TES">
+          <End Role="TES" Type="Self.TES" Multiplicity="0..1" />
+          <End Role="PESERTA_TES" Type="Self.PESERTA_TES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TES">
+              <PropertyRef Name="ID_TES" />
+            </Principal>
+            <Dependent Role="PESERTA_TES">
+              <PropertyRef Name="ID_TES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PESERTA__EMPAT_SOAL">
+          <End Role="SOAL" Type="Self.SOAL" Multiplicity="0..1" />
+          <End Role="PESERTA_JAWABAN_DETAIL" Type="Self.PESERTA_JAWABAN_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOAL">
+              <PropertyRef Name="ID_SOAL" />
+            </Principal>
+            <Dependent Role="PESERTA_JAWABAN_DETAIL">
+              <PropertyRef Name="ID_SOAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PESERTA__LIMA_PESERTA">
+          <End Role="PESERTA" Type="Self.PESERTA" Multiplicity="0..1" />
+          <End Role="PESERTA_TES" Type="Self.PESERTA_TES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESERTA">
+              <PropertyRef Name="ID_PESERTA" />
+            </Principal>
+            <Dependent Role="PESERTA_TES">
+              <PropertyRef Name="ID_PESERTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PESERTA__SATU_PESERTA_">
+          <End Role="PESERTA_TES" Type="Self.PESERTA_TES" Multiplicity="0..1" />
+          <End Role="PESERTA_JAWABAN_DETAIL" Type="Self.PESERTA_JAWABAN_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESERTA_TES">
+              <PropertyRef Name="ID_PESERTA_TEST" />
+            </Principal>
+            <Dependent Role="PESERTA_JAWABAN_DETAIL">
+              <PropertyRef Name="ID_PESERTA_TEST" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PESERTA_PROFIL_PESERTA">
+          <End Role="PROFIL_PESERTA" Type="Self.PROFIL_PESERTA" Multiplicity="0..1" />
+          <End Role="PESERTA" Type="Self.PESERTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFIL_PESERTA">
+              <PropertyRef Name="ID_PROFIL" />
+            </Principal>
+            <Dependent Role="PESERTA">
+              <PropertyRef Name="ID_PROFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PILIHAN_JAWABAN_SOAL">
+          <End Role="SOAL" Type="Self.SOAL" Multiplicity="0..1" />
+          <End Role="PILIHAN_JAWABAN" Type="Self.PILIHAN_JAWABAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOAL">
+              <PropertyRef Name="ID_SOAL" />
+            </Principal>
+            <Dependent Role="PILIHAN_JAWABAN">
+              <PropertyRef Name="ID_SOAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROFIL_PESERTA_WILAYAH">
+          <End Role="WILAYAH" Type="Self.WILAYAH" Multiplicity="0..1" />
+          <End Role="PROFIL_PESERTA" Type="Self.PROFIL_PESERTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WILAYAH">
+              <PropertyRef Name="ID_WILAYAH" />
+            </Principal>
+            <Dependent Role="PROFIL_PESERTA">
+              <PropertyRef Name="ID_WILAYAH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SOAL_KELOMPOK_SOAL">
+          <End Role="KELOMPOK_SOAL" Type="Self.KELOMPOK_SOAL" Multiplicity="0..1" />
+          <End Role="SOAL" Type="Self.SOAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KELOMPOK_SOAL">
+              <PropertyRef Name="ID_KELOMPOKSOAL" />
+            </Principal>
+            <Dependent Role="SOAL">
+              <PropertyRef Name="ID_KELOMPOKSOAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SOAL_SUBTES">
+          <End Role="SUBTES" Type="Self.SUBTES" Multiplicity="0..1" />
+          <End Role="SOAL" Type="Self.SOAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBTES">
+              <PropertyRef Name="ID_SUBTES" />
+            </Principal>
+            <Dependent Role="SOAL">
+              <PropertyRef Name="ID_SUBTES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SOAL_TIPE_SOAL">
+          <End Role="TIPE_SOAL" Type="Self.TIPE_SOAL" Multiplicity="0..1" />
+          <End Role="SOAL" Type="Self.SOAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPE_SOAL">
+              <PropertyRef Name="ID_TIPESOAL" />
+            </Principal>
+            <Dependent Role="SOAL">
+              <PropertyRef Name="ID_TIPESOAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUBTES_TES">
+          <End Role="TES" Type="Self.TES" Multiplicity="0..1" />
+          <End Role="SUBTES" Type="Self.SUBTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TES">
+              <PropertyRef Name="ID_TES" />
+            </Principal>
+            <Dependent Role="SUBTES">
+              <PropertyRef Name="ID_TES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Test_OnlineModelStoreContainer">
+          <EntitySet Name="KELOMPOK_SOAL" EntityType="Self.KELOMPOK_SOAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PESERTA" EntityType="Self.PESERTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PESERTA_JAWABAN_DETAIL" EntityType="Self.PESERTA_JAWABAN_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PESERTA_TES" EntityType="Self.PESERTA_TES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PILIHAN_JAWABAN" EntityType="Self.PILIHAN_JAWABAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROFIL_PESERTA" EntityType="Self.PROFIL_PESERTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SOAL" EntityType="Self.SOAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUBTES" EntityType="Self.SUBTES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TES" EntityType="Self.TES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPE_SOAL" EntityType="Self.TIPE_SOAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WILAYAH" EntityType="Self.WILAYAH" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_PESERTA__DUA_TES" Association="Self.FK_PESERTA__DUA_TES">
+            <End Role="TES" EntitySet="TES" />
+            <End Role="PESERTA_TES" EntitySet="PESERTA_TES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PESERTA__EMPAT_SOAL" Association="Self.FK_PESERTA__EMPAT_SOAL">
+            <End Role="SOAL" EntitySet="SOAL" />
+            <End Role="PESERTA_JAWABAN_DETAIL" EntitySet="PESERTA_JAWABAN_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PESERTA__LIMA_PESERTA" Association="Self.FK_PESERTA__LIMA_PESERTA">
+            <End Role="PESERTA" EntitySet="PESERTA" />
+            <End Role="PESERTA_TES" EntitySet="PESERTA_TES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PESERTA__SATU_PESERTA_" Association="Self.FK_PESERTA__SATU_PESERTA_">
+            <End Role="PESERTA_TES" EntitySet="PESERTA_TES" />
+            <End Role="PESERTA_JAWABAN_DETAIL" EntitySet="PESERTA_JAWABAN_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PESERTA_PROFIL_PESERTA" Association="Self.FK_PESERTA_PROFIL_PESERTA">
+            <End Role="PROFIL_PESERTA" EntitySet="PROFIL_PESERTA" />
+            <End Role="PESERTA" EntitySet="PESERTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PILIHAN_JAWABAN_SOAL" Association="Self.FK_PILIHAN_JAWABAN_SOAL">
+            <End Role="SOAL" EntitySet="SOAL" />
+            <End Role="PILIHAN_JAWABAN" EntitySet="PILIHAN_JAWABAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROFIL_PESERTA_WILAYAH" Association="Self.FK_PROFIL_PESERTA_WILAYAH">
+            <End Role="WILAYAH" EntitySet="WILAYAH" />
+            <End Role="PROFIL_PESERTA" EntitySet="PROFIL_PESERTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SOAL_KELOMPOK_SOAL" Association="Self.FK_SOAL_KELOMPOK_SOAL">
+            <End Role="KELOMPOK_SOAL" EntitySet="KELOMPOK_SOAL" />
+            <End Role="SOAL" EntitySet="SOAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SOAL_SUBTES" Association="Self.FK_SOAL_SUBTES">
+            <End Role="SUBTES" EntitySet="SUBTES" />
+            <End Role="SOAL" EntitySet="SOAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SOAL_TIPE_SOAL" Association="Self.FK_SOAL_TIPE_SOAL">
+            <End Role="TIPE_SOAL" EntitySet="TIPE_SOAL" />
+            <End Role="SOAL" EntitySet="SOAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUBTES_TES" Association="Self.FK_SUBTES_TES">
+            <End Role="TES" EntitySet="TES" />
+            <End Role="SUBTES" EntitySet="SUBTES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Test_OnlineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="KELOMPOK_SOAL">
+          <Key>
+            <PropertyRef Name="ID_KELOMPOKSOAL" />
+          </Key>
+          <Property Name="ID_KELOMPOKSOAL" Type="Int32" Nullable="false" />
+          <Property Name="NAMA_KELOMPOKSOAL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SOAL" Relationship="Self.FK_SOAL_KELOMPOK_SOAL" FromRole="KELOMPOK_SOAL" ToRole="SOAL" />
+        </EntityType>
+        <EntityType Name="PESERTA">
+          <Key>
+            <PropertyRef Name="ID_PESERTA" />
+          </Key>
+          <Property Name="ID_PESERTA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PROFIL" Type="Int32" />
+          <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <NavigationProperty Name="PESERTA_TES" Relationship="Self.FK_PESERTA__LIMA_PESERTA" FromRole="PESERTA" ToRole="PESERTA_TES" />
+          <NavigationProperty Name="PROFIL_PESERTA" Relationship="Self.FK_PESERTA_PROFIL_PESERTA" FromRole="PESERTA" ToRole="PROFIL_PESERTA" />
+        </EntityType>
+        <EntityType Name="PESERTA_JAWABAN_DETAIL">
+          <Key>
+            <PropertyRef Name="ID_JWBNPESERTA" />
+          </Key>
+          <Property Name="ID_JWBNPESERTA" Type="Int32" Nullable="false" />
+          <Property Name="ID_PESERTA_TEST" Type="Int32" />
+          <Property Name="ID_SOAL" Type="Int32" />
+          <Property Name="JWBN_PESERTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SOAL" Relationship="Self.FK_PESERTA__EMPAT_SOAL" FromRole="PESERTA_JAWABAN_DETAIL" ToRole="SOAL" />
+          <NavigationProperty Name="PESERTA_TES" Relationship="Self.FK_PESERTA__SATU_PESERTA_" FromRole="PESERTA_JAWABAN_DETAIL" ToRole="PESERTA_TES" />
+        </EntityType>
+        <EntityType Name="PESERTA_TES">
+          <Key>
+            <PropertyRef Name="ID_PESERTA_TEST" />
+          </Key>
+          <Property Name="ID_PESERTA_TEST" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PESERTA" Type="Int32" />
+          <Property Name="ID_TES" Type="Int32" />
+          <Property Name="TGL_TES" Type="DateTime" Precision="3" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PESERTA" Relationship="Self.FK_PESERTA__LIMA_PESERTA" FromRole="PESERTA_TES" ToRole="PESERTA" />
+          <NavigationProperty Name="PESERTA_JAWABAN_DETAIL" Relationship="Self.FK_PESERTA__SATU_PESERTA_" FromRole="PESERTA_TES" ToRole="PESERTA_JAWABAN_DETAIL" />
+          <NavigationProperty Name="TES" Relationship="Self.FK_PESERTA__DUA_TES" FromRole="PESERTA_TES" ToRole="TES" />
+        </EntityType>
+        <EntityType Name="PILIHAN_JAWABAN">
+          <Key>
+            <PropertyRef Name="ID_PILIHANJAWABAN" />
+          </Key>
+          <Property Name="ID_PILIHANJAWABAN" Type="Int32" Nullable="false" />
+          <Property Name="ID_SOAL" Type="Int32" />
+          <Property Name="PILIHAN" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PILIHAN_JAWABAN1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="KUNCI_JAWABAN" Type="Boolean" Nullable="false" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SOAL" Relationship="Self.FK_PILIHAN_JAWABAN_SOAL" FromRole="PILIHAN_JAWABAN" ToRole="SOAL" />
+        </EntityType>
+        <EntityType Name="PROFIL_PESERTA">
+          <Key>
+            <PropertyRef Name="ID_PROFIL" />
+          </Key>
+          <Property Name="ID_PROFIL" Type="Int32" Nullable="false" />
+          <Property Name="ID_WILAYAH" Type="Int32" />
+          <Property Name="NAMA_PESERTA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ALAMAT_PESERTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TEMPAT_LAHIR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TANGGAL_LAHIR" Type="DateTime" Precision="3" />
+          <Property Name="NO_HP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PESERTA" Relationship="Self.FK_PESERTA_PROFIL_PESERTA" FromRole="PROFIL_PESERTA" ToRole="PESERTA" />
+          <NavigationProperty Name="WILAYAH" Relationship="Self.FK_PROFIL_PESERTA_WILAYAH" FromRole="PROFIL_PESERTA" ToRole="WILAYAH" />
+        </EntityType>
+        <EntityType Name="SOAL">
+          <Key>
+            <PropertyRef Name="ID_SOAL" />
+          </Key>
+          <Property Name="ID_SOAL" Type="Int32" Nullable="false" />
+          <Property Name="ID_KELOMPOKSOAL" Type="Int32" />
+          <Property Name="ID_TIPESOAL" Type="Int32" />
+          <Property Name="ISI_SOAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="NILAI_SOAL" Type="Int32" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="KELOMPOK_SOAL" Relationship="Self.FK_SOAL_KELOMPOK_SOAL" FromRole="SOAL" ToRole="KELOMPOK_SOAL" />
+          <NavigationProperty Name="PESERTA_JAWABAN_DETAIL" Relationship="Self.FK_PESERTA__EMPAT_SOAL" FromRole="SOAL" ToRole="PESERTA_JAWABAN_DETAIL" />
+          <NavigationProperty Name="PILIHAN_JAWABAN" Relationship="Self.FK_PILIHAN_JAWABAN_SOAL" FromRole="SOAL" ToRole="PILIHAN_JAWABAN" />
+          <NavigationProperty Name="TIPE_SOAL" Relationship="Self.FK_SOAL_TIPE_SOAL" FromRole="SOAL" ToRole="TIPE_SOAL" />
+          <Property Name="ID_SUBTES" Type="Int32" />
+          <NavigationProperty Name="SUBTES" Relationship="Test_OnlineModel.FK_SOAL_SUBTES" FromRole="SOAL" ToRole="SUBTES" />
+        </EntityType>
+        <EntityType Name="SUBTES">
+          <Key>
+            <PropertyRef Name="ID_SUBTES" />
+          </Key>
+          <Property Name="ID_SUBTES" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_TES" Type="Int32" />
+          <Property Name="DURASI_SUB" Type="DateTime" Precision="3" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Boolean" />
+          <NavigationProperty Name="TES" Relationship="Self.FK_SUBTES_TES" FromRole="SUBTES" ToRole="TES" />
+          <NavigationProperty Name="SOAL" Relationship="Test_OnlineModel.FK_SOAL_SUBTES" FromRole="SUBTES" ToRole="SOAL" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TES">
+          <Key>
+            <PropertyRef Name="ID_TES" />
+          </Key>
+          <Property Name="ID_TES" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PESERTA_TES" Relationship="Self.FK_PESERTA__DUA_TES" FromRole="TES" ToRole="PESERTA_TES" />
+          <NavigationProperty Name="SUBTES" Relationship="Self.FK_SUBTES_TES" FromRole="TES" ToRole="SUBTES" />
+        </EntityType>
+        <EntityType Name="TIPE_SOAL">
+          <Key>
+            <PropertyRef Name="ID_TIPESOAL" />
+          </Key>
+          <Property Name="ID_TIPESOAL" Type="Int32" Nullable="false" />
+          <Property Name="NAMA_TIPE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SOAL" Relationship="Self.FK_SOAL_TIPE_SOAL" FromRole="TIPE_SOAL" ToRole="SOAL" />
+        </EntityType>
+        <EntityType Name="WILAYAH">
+          <Key>
+            <PropertyRef Name="ID_WILAYAH" />
+          </Key>
+          <Property Name="ID_WILAYAH" Type="Int32" Nullable="false" />
+          <Property Name="NAMA_WILAYAH" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LEVEL_WILAYAH" Type="Int32" />
+          <Property Name="PARENT" Type="Int32" />
+          <Property Name="Created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROFIL_PESERTA" Relationship="Self.FK_PROFIL_PESERTA_WILAYAH" FromRole="WILAYAH" ToRole="PROFIL_PESERTA" />
+        </EntityType>
+        <Association Name="FK_SOAL_KELOMPOK_SOAL">
+          <End Role="KELOMPOK_SOAL" Type="Self.KELOMPOK_SOAL" Multiplicity="0..1" />
+          <End Role="SOAL" Type="Self.SOAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KELOMPOK_SOAL">
+              <PropertyRef Name="ID_KELOMPOKSOAL" />
+            </Principal>
+            <Dependent Role="SOAL">
+              <PropertyRef Name="ID_KELOMPOKSOAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PESERTA__LIMA_PESERTA">
+          <End Role="PESERTA" Type="Self.PESERTA" Multiplicity="0..1" />
+          <End Role="PESERTA_TES" Type="Self.PESERTA_TES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESERTA">
+              <PropertyRef Name="ID_PESERTA" />
+            </Principal>
+            <Dependent Role="PESERTA_TES">
+              <PropertyRef Name="ID_PESERTA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PESERTA_PROFIL_PESERTA">
+          <End Role="PROFIL_PESERTA" Type="Self.PROFIL_PESERTA" Multiplicity="0..1" />
+          <End Role="PESERTA" Type="Self.PESERTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFIL_PESERTA">
+              <PropertyRef Name="ID_PROFIL" />
+            </Principal>
+            <Dependent Role="PESERTA">
+              <PropertyRef Name="ID_PROFIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PESERTA__EMPAT_SOAL">
+          <End Role="SOAL" Type="Self.SOAL" Multiplicity="0..1" />
+          <End Role="PESERTA_JAWABAN_DETAIL" Type="Self.PESERTA_JAWABAN_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOAL">
+              <PropertyRef Name="ID_SOAL" />
+            </Principal>
+            <Dependent Role="PESERTA_JAWABAN_DETAIL">
+              <PropertyRef Name="ID_SOAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PESERTA__SATU_PESERTA_">
+          <End Role="PESERTA_TES" Type="Self.PESERTA_TES" Multiplicity="0..1" />
+          <End Role="PESERTA_JAWABAN_DETAIL" Type="Self.PESERTA_JAWABAN_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PESERTA_TES">
+              <PropertyRef Name="ID_PESERTA_TEST" />
+            </Principal>
+            <Dependent Role="PESERTA_JAWABAN_DETAIL">
+              <PropertyRef Name="ID_PESERTA_TEST" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PESERTA__DUA_TES">
+          <End Role="TES" Type="Self.TES" Multiplicity="0..1" />
+          <End Role="PESERTA_TES" Type="Self.PESERTA_TES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TES">
+              <PropertyRef Name="ID_TES" />
+            </Principal>
+            <Dependent Role="PESERTA_TES">
+              <PropertyRef Name="ID_TES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PILIHAN_JAWABAN_SOAL">
+          <End Role="SOAL" Type="Self.SOAL" Multiplicity="0..1" />
+          <End Role="PILIHAN_JAWABAN" Type="Self.PILIHAN_JAWABAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOAL">
+              <PropertyRef Name="ID_SOAL" />
+            </Principal>
+            <Dependent Role="PILIHAN_JAWABAN">
+              <PropertyRef Name="ID_SOAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROFIL_PESERTA_WILAYAH">
+          <End Role="WILAYAH" Type="Self.WILAYAH" Multiplicity="0..1" />
+          <End Role="PROFIL_PESERTA" Type="Self.PROFIL_PESERTA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WILAYAH">
+              <PropertyRef Name="ID_WILAYAH" />
+            </Principal>
+            <Dependent Role="PROFIL_PESERTA">
+              <PropertyRef Name="ID_WILAYAH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SOAL_TIPE_SOAL">
+          <End Role="TIPE_SOAL" Type="Self.TIPE_SOAL" Multiplicity="0..1" />
+          <End Role="SOAL" Type="Self.SOAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPE_SOAL">
+              <PropertyRef Name="ID_TIPESOAL" />
+            </Principal>
+            <Dependent Role="SOAL">
+              <PropertyRef Name="ID_TIPESOAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SUBTES_TES">
+          <End Role="TES" Type="Self.TES" Multiplicity="0..1" />
+          <End Role="SUBTES" Type="Self.SUBTES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TES">
+              <PropertyRef Name="ID_TES" />
+            </Principal>
+            <Dependent Role="SUBTES">
+              <PropertyRef Name="ID_TES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Test_OnlineEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KELOMPOK_SOAL" EntityType="Self.KELOMPOK_SOAL" />
+          <EntitySet Name="PESERTA" EntityType="Self.PESERTA" />
+          <EntitySet Name="PESERTA_JAWABAN_DETAIL" EntityType="Self.PESERTA_JAWABAN_DETAIL" />
+          <EntitySet Name="PESERTA_TES" EntityType="Self.PESERTA_TES" />
+          <EntitySet Name="PILIHAN_JAWABAN" EntityType="Self.PILIHAN_JAWABAN" />
+          <EntitySet Name="PROFIL_PESERTA" EntityType="Self.PROFIL_PESERTA" />
+          <EntitySet Name="SOAL" EntityType="Self.SOAL" />
+          <EntitySet Name="SUBTES" EntityType="Self.SUBTES" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TES" EntityType="Self.TES" />
+          <EntitySet Name="TIPE_SOAL" EntityType="Self.TIPE_SOAL" />
+          <EntitySet Name="WILAYAH" EntityType="Self.WILAYAH" />
+          <AssociationSet Name="FK_SOAL_KELOMPOK_SOAL" Association="Self.FK_SOAL_KELOMPOK_SOAL">
+            <End Role="KELOMPOK_SOAL" EntitySet="KELOMPOK_SOAL" />
+            <End Role="SOAL" EntitySet="SOAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PESERTA__LIMA_PESERTA" Association="Self.FK_PESERTA__LIMA_PESERTA">
+            <End Role="PESERTA" EntitySet="PESERTA" />
+            <End Role="PESERTA_TES" EntitySet="PESERTA_TES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PESERTA_PROFIL_PESERTA" Association="Self.FK_PESERTA_PROFIL_PESERTA">
+            <End Role="PROFIL_PESERTA" EntitySet="PROFIL_PESERTA" />
+            <End Role="PESERTA" EntitySet="PESERTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PESERTA__EMPAT_SOAL" Association="Self.FK_PESERTA__EMPAT_SOAL">
+            <End Role="SOAL" EntitySet="SOAL" />
+            <End Role="PESERTA_JAWABAN_DETAIL" EntitySet="PESERTA_JAWABAN_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PESERTA__SATU_PESERTA_" Association="Self.FK_PESERTA__SATU_PESERTA_">
+            <End Role="PESERTA_TES" EntitySet="PESERTA_TES" />
+            <End Role="PESERTA_JAWABAN_DETAIL" EntitySet="PESERTA_JAWABAN_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PESERTA__DUA_TES" Association="Self.FK_PESERTA__DUA_TES">
+            <End Role="TES" EntitySet="TES" />
+            <End Role="PESERTA_TES" EntitySet="PESERTA_TES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PILIHAN_JAWABAN_SOAL" Association="Self.FK_PILIHAN_JAWABAN_SOAL">
+            <End Role="SOAL" EntitySet="SOAL" />
+            <End Role="PILIHAN_JAWABAN" EntitySet="PILIHAN_JAWABAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROFIL_PESERTA_WILAYAH" Association="Self.FK_PROFIL_PESERTA_WILAYAH">
+            <End Role="WILAYAH" EntitySet="WILAYAH" />
+            <End Role="PROFIL_PESERTA" EntitySet="PROFIL_PESERTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SOAL_TIPE_SOAL" Association="Self.FK_SOAL_TIPE_SOAL">
+            <End Role="TIPE_SOAL" EntitySet="TIPE_SOAL" />
+            <End Role="SOAL" EntitySet="SOAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SUBTES_TES" Association="Self.FK_SUBTES_TES">
+            <End Role="TES" EntitySet="TES" />
+            <End Role="SUBTES" EntitySet="SUBTES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SOAL_SUBTES" Association="Test_OnlineModel.FK_SOAL_SUBTES">
+            <End Role="SUBTES" EntitySet="SUBTES" />
+            <End Role="SOAL" EntitySet="SOAL" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_SOAL_SUBTES">
+          <End Type="Test_OnlineModel.SUBTES" Role="SUBTES" Multiplicity="0..1" />
+          <End Type="Test_OnlineModel.SOAL" Role="SOAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUBTES">
+              <PropertyRef Name="ID_SUBTES" />
+            </Principal>
+            <Dependent Role="SOAL">
+              <PropertyRef Name="ID_SUBTES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Test_OnlineModelStoreContainer" CdmEntityContainer="Test_OnlineEntities">
+          <EntitySetMapping Name="KELOMPOK_SOAL">
+            <EntityTypeMapping TypeName="Test_OnlineModel.KELOMPOK_SOAL">
+              <MappingFragment StoreEntitySet="KELOMPOK_SOAL">
+                <ScalarProperty Name="ID_KELOMPOKSOAL" ColumnName="ID_KELOMPOKSOAL" />
+                <ScalarProperty Name="NAMA_KELOMPOKSOAL" ColumnName="NAMA_KELOMPOKSOAL" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PESERTA">
+            <EntityTypeMapping TypeName="Test_OnlineModel.PESERTA">
+              <MappingFragment StoreEntitySet="PESERTA">
+                <ScalarProperty Name="ID_PESERTA" ColumnName="ID_PESERTA" />
+                <ScalarProperty Name="ID_PROFIL" ColumnName="ID_PROFIL" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PESERTA_JAWABAN_DETAIL">
+            <EntityTypeMapping TypeName="Test_OnlineModel.PESERTA_JAWABAN_DETAIL">
+              <MappingFragment StoreEntitySet="PESERTA_JAWABAN_DETAIL">
+                <ScalarProperty Name="ID_JWBNPESERTA" ColumnName="ID_JWBNPESERTA" />
+                <ScalarProperty Name="ID_PESERTA_TEST" ColumnName="ID_PESERTA_TEST" />
+                <ScalarProperty Name="ID_SOAL" ColumnName="ID_SOAL" />
+                <ScalarProperty Name="JWBN_PESERTA" ColumnName="JWBN_PESERTA" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PESERTA_TES">
+            <EntityTypeMapping TypeName="Test_OnlineModel.PESERTA_TES">
+              <MappingFragment StoreEntitySet="PESERTA_TES">
+                <ScalarProperty Name="ID_PESERTA_TEST" ColumnName="ID_PESERTA_TEST" />
+                <ScalarProperty Name="ID_PESERTA" ColumnName="ID_PESERTA" />
+                <ScalarProperty Name="ID_TES" ColumnName="ID_TES" />
+                <ScalarProperty Name="TGL_TES" ColumnName="TGL_TES" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PILIHAN_JAWABAN">
+            <EntityTypeMapping TypeName="Test_OnlineModel.PILIHAN_JAWABAN">
+              <MappingFragment StoreEntitySet="PILIHAN_JAWABAN">
+                <ScalarProperty Name="ID_PILIHANJAWABAN" ColumnName="ID_PILIHANJAWABAN" />
+                <ScalarProperty Name="ID_SOAL" ColumnName="ID_SOAL" />
+                <ScalarProperty Name="PILIHAN" ColumnName="PILIHAN" />
+                <ScalarProperty Name="PILIHAN_JAWABAN1" ColumnName="PILIHAN_JAWABAN" />
+                <ScalarProperty Name="KUNCI_JAWABAN" ColumnName="KUNCI_JAWABAN" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROFIL_PESERTA">
+            <EntityTypeMapping TypeName="Test_OnlineModel.PROFIL_PESERTA">
+              <MappingFragment StoreEntitySet="PROFIL_PESERTA">
+                <ScalarProperty Name="ID_PROFIL" ColumnName="ID_PROFIL" />
+                <ScalarProperty Name="ID_WILAYAH" ColumnName="ID_WILAYAH" />
+                <ScalarProperty Name="NAMA_PESERTA" ColumnName="NAMA_PESERTA" />
+                <ScalarProperty Name="ALAMAT_PESERTA" ColumnName="ALAMAT_PESERTA" />
+                <ScalarProperty Name="TEMPAT_LAHIR" ColumnName="TEMPAT_LAHIR" />
+                <ScalarProperty Name="TANGGAL_LAHIR" ColumnName="TANGGAL_LAHIR" />
+                <ScalarProperty Name="NO_HP" ColumnName="NO_HP" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SOAL">
+            <EntityTypeMapping TypeName="Test_OnlineModel.SOAL">
+              <MappingFragment StoreEntitySet="SOAL">
+                <ScalarProperty Name="ID_SUBTES" ColumnName="ID_SUBTES" />
+                <ScalarProperty Name="ID_SOAL" ColumnName="ID_SOAL" />
+                <ScalarProperty Name="ID_KELOMPOKSOAL" ColumnName="ID_KELOMPOKSOAL" />
+                <ScalarProperty Name="ID_TIPESOAL" ColumnName="ID_TIPESOAL" />
+                <ScalarProperty Name="ISI_SOAL" ColumnName="ISI_SOAL" />
+                <ScalarProperty Name="NILAI_SOAL" ColumnName="NILAI_SOAL" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUBTES">
+            <EntityTypeMapping TypeName="Test_OnlineModel.SUBTES">
+              <MappingFragment StoreEntitySet="SUBTES">
+                <ScalarProperty Name="ID_SUBTES" ColumnName="ID_SUBTES" />
+                <ScalarProperty Name="ID_TES" ColumnName="ID_TES" />
+                <ScalarProperty Name="DURASI_SUB" ColumnName="DURASI_SUB" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Test_OnlineModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TES">
+            <EntityTypeMapping TypeName="Test_OnlineModel.TES">
+              <MappingFragment StoreEntitySet="TES">
+                <ScalarProperty Name="ID_TES" ColumnName="ID_TES" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPE_SOAL">
+            <EntityTypeMapping TypeName="Test_OnlineModel.TIPE_SOAL">
+              <MappingFragment StoreEntitySet="TIPE_SOAL">
+                <ScalarProperty Name="ID_TIPESOAL" ColumnName="ID_TIPESOAL" />
+                <ScalarProperty Name="NAMA_TIPE" ColumnName="NAMA_TIPE" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WILAYAH">
+            <EntityTypeMapping TypeName="Test_OnlineModel.WILAYAH">
+              <MappingFragment StoreEntitySet="WILAYAH">
+                <ScalarProperty Name="ID_WILAYAH" ColumnName="ID_WILAYAH" />
+                <ScalarProperty Name="NAMA_WILAYAH" ColumnName="NAMA_WILAYAH" />
+                <ScalarProperty Name="LEVEL_WILAYAH" ColumnName="LEVEL_WILAYAH" />
+                <ScalarProperty Name="PARENT" ColumnName="PARENT" />
+                <ScalarProperty Name="Created_by" ColumnName="Created by" />
+                <ScalarProperty Name="Created_date" ColumnName="Created date" />
+                <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminLTE", "AdminLTE\AdminLTE.csproj", "{20B0C011-C295-4510-881A-7BE0CFC8A146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{C0DA36F3-D914-4494-81F0-A3C3DB2C3AA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20B0C011-C295-4510-881A-7BE0CFC8A146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B0C011-C295-4510-881A-7BE0CFC8A146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20B0C011-C295-4510-881A-7BE0CFC8A146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20B0C011-C295-4510-881A-7BE0CFC8A146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0DA36F3-D914-4494-81F0-A3C3DB2C3AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0DA36F3-D914-4494-81F0-A3C3DB2C3AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0DA36F3-D914-4494-81F0-A3C3DB2C3AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0DA36F3-D914-4494-81F0-A3C3DB2C3AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3C10116-1114-442C-A7A8-16452C50EE1E}
+	EndGlobalSection
+EndGlobal

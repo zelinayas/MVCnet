@@ -1,0 +1,76 @@
+﻿@model IEnumerable<AdminLTE.Models.SOAL>
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ISI_SOAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NILAI_SOAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modified_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KELOMPOK_SOAL.NAMA_KELOMPOKSOAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPE_SOAL.NAMA_TIPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SUBTES.Created_by)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISI_SOAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NILAI_SOAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KELOMPOK_SOAL.NAMA_KELOMPOKSOAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPE_SOAL.NAMA_TIPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SUBTES.Created_by)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_SOAL }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_SOAL }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_SOAL })
+        </td>
+    </tr>
+}
+
+</table>

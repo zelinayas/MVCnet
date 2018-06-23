@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Test_OnlineModelStoreContainer" CdmEntityContainer="Test_OnlineEntities">
+    <EntitySetMapping Name="KELOMPOK_SOAL">
+      <EntityTypeMapping TypeName="Test_OnlineModel.KELOMPOK_SOAL">
+        <MappingFragment StoreEntitySet="KELOMPOK_SOAL">
+          <ScalarProperty Name="ID_KELOMPOKSOAL" ColumnName="ID_KELOMPOKSOAL" />
+          <ScalarProperty Name="NAMA_KELOMPOKSOAL" ColumnName="NAMA_KELOMPOKSOAL" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PESERTA">
+      <EntityTypeMapping TypeName="Test_OnlineModel.PESERTA">
+        <MappingFragment StoreEntitySet="PESERTA">
+          <ScalarProperty Name="ID_PESERTA" ColumnName="ID_PESERTA" />
+          <ScalarProperty Name="ID_PROFIL" ColumnName="ID_PROFIL" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PESERTA_JAWABAN_DETAIL">
+      <EntityTypeMapping TypeName="Test_OnlineModel.PESERTA_JAWABAN_DETAIL">
+        <MappingFragment StoreEntitySet="PESERTA_JAWABAN_DETAIL">
+          <ScalarProperty Name="ID_JWBNPESERTA" ColumnName="ID_JWBNPESERTA" />
+          <ScalarProperty Name="ID_PESERTA_TEST" ColumnName="ID_PESERTA_TEST" />
+          <ScalarProperty Name="ID_SOAL" ColumnName="ID_SOAL" />
+          <ScalarProperty Name="JWBN_PESERTA" ColumnName="JWBN_PESERTA" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PESERTA_TES">
+      <EntityTypeMapping TypeName="Test_OnlineModel.PESERTA_TES">
+        <MappingFragment StoreEntitySet="PESERTA_TES">
+          <ScalarProperty Name="ID_PESERTA_TEST" ColumnName="ID_PESERTA_TEST" />
+          <ScalarProperty Name="ID_PESERTA" ColumnName="ID_PESERTA" />
+          <ScalarProperty Name="ID_TES" ColumnName="ID_TES" />
+          <ScalarProperty Name="TGL_TES" ColumnName="TGL_TES" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PILIHAN_JAWABAN">
+      <EntityTypeMapping TypeName="Test_OnlineModel.PILIHAN_JAWABAN">
+        <MappingFragment StoreEntitySet="PILIHAN_JAWABAN">
+          <ScalarProperty Name="ID_PILIHANJAWABAN" ColumnName="ID_PILIHANJAWABAN" />
+          <ScalarProperty Name="ID_SOAL" ColumnName="ID_SOAL" />
+          <ScalarProperty Name="PILIHAN" ColumnName="PILIHAN" />
+          <ScalarProperty Name="PILIHAN_JAWABAN1" ColumnName="PILIHAN_JAWABAN" />
+          <ScalarProperty Name="KUNCI_JAWABAN" ColumnName="KUNCI_JAWABAN" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROFIL_PESERTA">
+      <EntityTypeMapping TypeName="Test_OnlineModel.PROFIL_PESERTA">
+        <MappingFragment StoreEntitySet="PROFIL_PESERTA">
+          <ScalarProperty Name="ID_PROFIL" ColumnName="ID_PROFIL" />
+          <ScalarProperty Name="ID_WILAYAH" ColumnName="ID_WILAYAH" />
+          <ScalarProperty Name="NAMA_PESERTA" ColumnName="NAMA_PESERTA" />
+          <ScalarProperty Name="ALAMAT_PESERTA" ColumnName="ALAMAT_PESERTA" />
+          <ScalarProperty Name="TEMPAT_LAHIR" ColumnName="TEMPAT_LAHIR" />
+          <ScalarProperty Name="TANGGAL_LAHIR" ColumnName="TANGGAL_LAHIR" />
+          <ScalarProperty Name="NO_HP" ColumnName="NO_HP" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SOAL">
+      <EntityTypeMapping TypeName="Test_OnlineModel.SOAL">
+        <MappingFragment StoreEntitySet="SOAL">
+          <ScalarProperty Name="ID_SUBTES" ColumnName="ID_SUBTES" />
+          <ScalarProperty Name="ID_SOAL" ColumnName="ID_SOAL" />
+          <ScalarProperty Name="ID_KELOMPOKSOAL" ColumnName="ID_KELOMPOKSOAL" />
+          <ScalarProperty Name="ID_TIPESOAL" ColumnName="ID_TIPESOAL" />
+          <ScalarProperty Name="ISI_SOAL" ColumnName="ISI_SOAL" />
+          <ScalarProperty Name="NILAI_SOAL" ColumnName="NILAI_SOAL" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SUBTES">
+      <EntityTypeMapping TypeName="Test_OnlineModel.SUBTES">
+        <MappingFragment StoreEntitySet="SUBTES">
+          <ScalarProperty Name="ID_SUBTES" ColumnName="ID_SUBTES" />
+          <ScalarProperty Name="ID_TES" ColumnName="ID_TES" />
+          <ScalarProperty Name="DURASI_SUB" ColumnName="DURASI_SUB" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Test_OnlineModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TES">
+      <EntityTypeMapping TypeName="Test_OnlineModel.TES">
+        <MappingFragment StoreEntitySet="TES">
+          <ScalarProperty Name="ID_TES" ColumnName="ID_TES" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPE_SOAL">
+      <EntityTypeMapping TypeName="Test_OnlineModel.TIPE_SOAL">
+        <MappingFragment StoreEntitySet="TIPE_SOAL">
+          <ScalarProperty Name="ID_TIPESOAL" ColumnName="ID_TIPESOAL" />
+          <ScalarProperty Name="NAMA_TIPE" ColumnName="NAMA_TIPE" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WILAYAH">
+      <EntityTypeMapping TypeName="Test_OnlineModel.WILAYAH">
+        <MappingFragment StoreEntitySet="WILAYAH">
+          <ScalarProperty Name="ID_WILAYAH" ColumnName="ID_WILAYAH" />
+          <ScalarProperty Name="NAMA_WILAYAH" ColumnName="NAMA_WILAYAH" />
+          <ScalarProperty Name="LEVEL_WILAYAH" ColumnName="LEVEL_WILAYAH" />
+          <ScalarProperty Name="PARENT" ColumnName="PARENT" />
+          <ScalarProperty Name="Created_by" ColumnName="Created by" />
+          <ScalarProperty Name="Created_date" ColumnName="Created date" />
+          <ScalarProperty Name="Modified_by" ColumnName="Modified by" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AdminLTE.Models.SUBTES>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DURASI_SUB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modified_by)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Is_Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NAMA_SUBTES)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TES.Created_by)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DURASI_SUB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified_by)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Is_Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAMA_SUBTES)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TES.Created_by)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_SUBTES }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_SUBTES }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_SUBTES })
+        </td>
+    </tr>
+}
+
+</table>

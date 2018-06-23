@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">PILIHAN SOAL</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-header with-border">
+                <div class="col-md-4">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Kelompok Soal</label>
+                            <select class="form-control">
+                                <option>Matematika</option>
+                                <option>Psikotes</option>
+                                <option>Fisika</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Kelompok Sub</label>
+                            <select class="form-control">
+                                <option>Sub 1</option>
+                                <option>Sub 2</option>
+                                <option>Sub 3</option>
+                                <option>Sub 4</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="box-body">
+    <table id="example2" class="table table-bordered table-hover">
+        <div class="box-header">
+            <h3 class="box-title">DATA PESERTA</h3>
+
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>NAMA</th>
+                    <th>TIPE SOAL</th>
+                    <th>DURASI WAKTU</th>
+                    <th>ACTION</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>1</td>
+                    <td>Rasyid</td>
+                    <td>Pilihan ganda</td>
+                    <td>00:30:00</td>
+                    <td>  <button type="sub" class="btn btn-primary">Koreksi</button> </td>
+
+                </tr>
+                <tr>
+
+                    <td>2</td>
+                    <td>Risang</td>
+                    <td>Uraian</td>
+                    <td>00:30:00</td>
+                    <td>  <button type="sub" class="btn btn-primary">Koreksi</button> </td>
+
+                </tr>
+                <tr>
+
+                    <td>3</td>
+                    <td>Zelina</td>
+                    <td>Uraian</td>
+                    <td>00:30:00</td>
+                    <td>  <button type="sub" class="btn btn-primary">Koreksi</button> </td>
+                </tr>
+
+            </tbody>
+
+    </table>
+</div>
+
+
+
